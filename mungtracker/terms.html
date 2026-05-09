@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>이용약관 | 멍트래커</title>
+  <meta name="description" content="멍트래커 서비스 이용약관 — 서비스 이용 조건, 이용자 의무, 유료 구독, 면책 사항 안내">
+  <style>
+    :root {
+      --primary: #FF8A1E;
+      --text: #1A1A1A;
+      --text-secondary: #475569;
+      --border: #E5E7EB;
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo',
+                   'Malgun Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-text-size-adjust: 100%;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .container {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header h1 {
+      font-size: 17px;
+      margin: 0;
+      font-weight: 800;
+      color: var(--text);
+    }
+    header .brand {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    .doc-header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+    .doc-header h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .doc-header .meta {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 0;
+    }
+    .doc-header .meta strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    section {
+      margin-bottom: 32px;
+    }
+    section h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 12px;
+      letter-spacing: -0.3px;
+    }
+    section p {
+      margin: 0 0 12px;
+      color: var(--text-secondary);
+    }
+    section ol {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      list-style: none;
+      counter-reset: clause;
+    }
+    section ol li {
+      counter-increment: clause;
+      margin-bottom: 10px;
+      padding-left: 8px;
+      position: relative;
+    }
+    section ol li::before {
+      content: '①②③④⑤⑥⑦⑧⑨⑩' attr(data-n);
+      position: absolute;
+      left: -20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    /* 원숫자 직접 표기 — 원문 가독성 보존 */
+    section ol.circled {
+      list-style: none;
+      padding-left: 0;
+    }
+    section ol.circled li::before { display: none; }
+    section ol.circled li {
+      padding-left: 0;
+    }
+    section ul {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+    section ul li {
+      margin-bottom: 6px;
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 12px;
+    }
+    .contact-card .row {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .contact-card .label {
+      min-width: 70px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .contact-card a { color: var(--primary); text-decoration: none; font-weight: 700; }
+    .contact-card a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94A3B8;
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      margin-top: 40px;
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      main { padding: 24px 16px 60px; }
+      .doc-header h2 { font-size: 22px; }
+      section h3 { font-size: 15px; }
+      body { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="brand">🐾 멍트래커</span>
+      <h1>이용약관</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-header">
+      <h2>이용약관</h2>
+      <p class="meta">
+        <strong>시행일:</strong> 2026년 4월 25일 &nbsp;·&nbsp;
+        <strong>최종 개정일:</strong> 2026년 4월 25일
+      </p>
+    </div>
+
+    <section>
+      <h3>제1조 (목적)</h3>
+      <p>이 약관은 멍트래커(이하 "서비스")가 제공하는 반려견 산책 기록 서비스의 이용 조건 및 절차, 서비스 이용자와 서비스 제공자의 권리·의무 및 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+    </section>
+
+    <section>
+      <h3>제2조 (정의)</h3>
+      <ol class="circled">
+        <li>① "서비스"란 멍트래커 앱을 통해 제공되는 반려견 산책 기록, 날씨 지수, 건강 다이어리 등 일체의 서비스를 의미합니다.</li>
+        <li>② "이용자"란 이 약관에 동의하고 서비스를 이용하는 자를 말합니다.</li>
+        <li>③ "콘텐츠"란 이용자가 서비스를 통해 생성하는 산책 기록, 반려견 프로필 등 일체의 정보를 말합니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제3조 (약관의 효력)</h3>
+      <ol class="circled">
+        <li>① 이 약관은 서비스 화면에 게시하거나 앱 업데이트 공지를 통해 이용자에게 공지함으로써 효력이 발생합니다.</li>
+        <li>② 서비스는 필요한 경우 약관을 개정할 수 있으며, 개정 시 7일 전에 앱 내 공지합니다.</li>
+        <li>③ 이용자가 개정 약관에 동의하지 않는 경우 서비스 이용을 중단하고 탈퇴할 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제4조 (서비스 이용)</h3>
+      <ol class="circled">
+        <li>① 서비스는 카카오 계정을 통한 소셜 로그인 방식으로 가입합니다.</li>
+        <li>② 이용자는 반려견 프로필을 1개 이상 등록하여야 핵심 기능을 이용할 수 있습니다.</li>
+        <li>③ 서비스 이용은 연중무휴 24시간을 원칙으로 하나, 점검·장애 시 일시 중단될 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제5조 (이용자 의무)</h3>
+      <p>이용자는 다음 행위를 하여서는 안 됩니다.</p>
+      <ul>
+        <li>타인의 개인정보를 도용하거나 허위 정보를 입력하는 행위</li>
+        <li>서비스의 정상적인 운영을 방해하는 행위</li>
+        <li>저작권 등 지적재산권을 침해하는 행위</li>
+        <li>관련 법령 또는 이 약관을 위반하는 행위</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>제6조 (서비스 제공 및 변경)</h3>
+      <ol class="circled">
+        <li>
+          ① 서비스는 이용자에게 아래 서비스를 제공합니다.
+          <ul style="margin-top: 8px;">
+            <li>반려견 맞춤 날씨 산책 지수 제공</li>
+            <li>산책 타이머 및 배변·건강 기록</li>
+            <li>산책 영수증 생성 및 카카오톡 공유</li>
+            <li>월별 산책 캘린더 히스토리</li>
+            <li>동네 발자국(다른 사용자와의 익명 공유 기능)</li>
+            <li>Pro 구독 시 추가 기능 제공</li>
+          </ul>
+        </li>
+        <li style="margin-top: 12px;">② 서비스는 서비스의 내용을 변경할 수 있으며, 중요 변경 사항은 앱 공지를 통해 안내합니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제7조 (광고)</h3>
+      <ol class="circled">
+        <li>① 서비스는 무료 이용자에게 Google AdMob을 통한 광고를 제공합니다.</li>
+        <li>② 광고는 배너 광고 형태로 제공됩니다.</li>
+        <li>③ Pro 구독 이용자는 광고 없이 서비스를 이용할 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제8조 (유료 서비스 — Pro 구독)</h3>
+      <ol class="circled">
+        <li>① 서비스는 Pro 기능을 월간/연간 구독 형태의 유료로 제공합니다.</li>
+        <li>② Pro 구독에는 Support(스낵·식사·간식, 1,100원/2,200원/3,300원) 및 Pro(3,900원/29,000원) 플랜이 포함됩니다.</li>
+        <li>③ 결제는 Google Play 인앱 결제 시스템을 통해서만 이루어집니다.</li>
+        <li>④ 구독은 결제 후 자동 갱신되며, Google Play 계정에서 언제든 해지할 수 있습니다.</li>
+        <li>⑤ 결제 취소 및 환불은 Google Play 환불 정책을 따릅니다.</li>
+        <li>⑥ Support 플랜은 후원 성격이며, 어떠한 대가 없이 결제 즉시 효력이 종료됩니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제9조 (면책)</h3>
+      <ol class="circled">
+        <li>① 서비스는 천재지변, 불가항력으로 인해 서비스를 제공할 수 없는 경우 책임이 면제됩니다.</li>
+        <li>② 날씨 정보는 기상청 공공 데이터를 기반으로 하며, 정확성을 보장하지 않습니다.</li>
+        <li>③ 서비스 내 수의학 정보는 참고용이며, 전문 수의사의 진단을 대체하지 않습니다.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>제10조 (분쟁 해결)</h3>
+      <p>이 약관과 관련된 분쟁은 대한민국 법률에 따르며, 관할 법원은 서비스 제공자의 소재지 관할 법원으로 합니다.</p>
+      <div class="contact-card">
+        <div class="row">
+          <span class="label">문의</span>
+          <a href="mailto:progreneur@gmail.com">progreneur@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="./index.html">홈</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="mailto:progreneur@gmail.com">문의</a>
+    </div>
+    <div style="margin-top: 10px;">
+      © 2026 MungTracker. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
