@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>계정 및 데이터 삭제 요청 | 멍트래커</title>
+  <meta name="description" content="멍트래커 계정 및 모든 개인 데이터 삭제 요청 안내 — 앱 내 즉시 삭제 또는 이메일 요청">
+  <style>
+    :root {
+      --primary: #FF8A1E;
+      --primary-dark: #E56F00;
+      --accent: #E53935;
+      --text: #1A1A1A;
+      --text-secondary: #475569;
+      --border: #E5E7EB;
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+      --warning-bg: #FFF4E0;
+      --warning-border: #FFCC80;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo',
+                   'Malgun Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-text-size-adjust: 100%;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .container {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header h1 {
+      font-size: 17px;
+      margin: 0;
+      font-weight: 800;
+    }
+    header .brand {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    .doc-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+    .doc-header h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .doc-header .lead {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin: 0;
+    }
+    .app-info {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 28px;
+    }
+    .app-info h3 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      margin: 0 0 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .app-info .row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .app-info .row:last-child { margin-bottom: 0; }
+    .app-info .label {
+      min-width: 90px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .app-info .value { color: var(--text); font-weight: 700; }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .step-card.recommended {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(255, 138, 30, 0.12);
+    }
+    .step-card .badge {
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .step-card h3 {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--text);
+      margin: 0 0 6px;
+      letter-spacing: -0.3px;
+    }
+    .step-card .subtitle {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 0 0 14px;
+    }
+    .step-card ol {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--text);
+    }
+    .step-card ol li {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .step-card ol li::marker {
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .step-card .email-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .step-card .email-cta:hover { background: var(--primary-dark); }
+    .step-card .copy-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      font-family: 'Consolas', 'Monaco', monospace;
+      line-height: 1.6;
+    }
+    section {
+      margin-top: 36px;
+      margin-bottom: 28px;
+    }
+    section h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 14px;
+      letter-spacing: -0.3px;
+    }
+    section p {
+      margin: 0 0 12px;
+      color: var(--text-secondary);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 13.5px;
+    }
+    .data-table th {
+      background: #F8F8F8;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 800;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 11px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    .data-table .deleted { color: #2E7D32; font-weight: 700; }
+    .data-table .retained { color: var(--accent); font-weight: 700; }
+    .warning-box {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .warning-box .title {
+      font-weight: 800;
+      color: #B45309;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .warning-box p {
+      margin: 0;
+      color: #92400E;
+      font-size: 13.5px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94A3B8;
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      margin-top: 40px;
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      main { padding: 24px 16px 60px; }
+      .doc-header h2 { font-size: 22px; }
+      section h3 { font-size: 16px; }
+      body { font-size: 14px; }
+      .data-table { font-size: 12.5px; }
+      .data-table th, .data-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="brand">🐾 멍트래커</span>
+      <h1>계정 및 데이터 삭제 요청</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-header">
+      <h2>계정 및 데이터 삭제 요청</h2>
+      <p class="lead">
+        멍트래커 계정과 모든 개인 데이터를 삭제하실 수 있습니다.
+        아래 두 가지 방법 중 편하신 방법을 선택해주세요.
+      </p>
+    </div>
+
+    <div class="app-info">
+      <h3>앱 정보</h3>
+      <div class="row">
+        <span class="label">앱 이름</span>
+        <span class="value">멍트래커: 강아지 산책 날씨</span>
+      </div>
+      <div class="row">
+        <span class="label">패키지명</span>
+        <span class="value">com.progreneur.mungtracker</span>
+      </div>
+      <div class="row">
+        <span class="label">개발자</span>
+        <span class="value">progreneur (1인 개발)</span>
+      </div>
+    </div>
+
+    <!-- 방법 1: 앱 내 삭제 (가장 빠름) -->
+    <div class="step-card recommended">
+      <div class="badge">권장 · 가장 빠름</div>
+      <h3>① 앱 내에서 직접 삭제 (즉시 처리)</h3>
+      <p class="subtitle">앱이 설치되어 있으면 메뉴 4번 탭만으로 즉시 영구 삭제됩니다.</p>
+      <ol>
+        <li>멍트래커 앱 실행 → 하단 <strong>마이</strong> 탭</li>
+        <li><strong>계정 관리</strong> 카테고리 선택</li>
+        <li><strong>회원 탈퇴</strong> 버튼 선택</li>
+        <li>2단계 확인 후 <strong>계정 영구 삭제</strong> 클릭</li>
+      </ol>
+      <p style="margin-top: 14px; font-size: 13px; color: var(--text-secondary);">
+        ⏱️ 처리 시간: <strong style="color: var(--text);">즉시</strong> (영구 삭제, 복구 불가)
+      </p>
+    </div>
+
+    <!-- 방법 2: 이메일 요청 -->
+    <div class="step-card">
+      <h3>② 이메일로 삭제 요청 (앱 삭제 후에도 가능)</h3>
+      <p class="subtitle">앱을 이미 삭제했거나 앱에 접근할 수 없는 경우 이메일로 요청하실 수 있습니다.</p>
+
+      <a href="mailto:progreneur@gmail.com?subject=멍트래커%20계정%20삭제%20요청&body=안녕하세요.%0D%0A%0D%0A아래%20정보로%20멍트래커%20계정의%20즉시%20삭제를%20요청합니다.%0D%0A%0D%0A■%20카카오%20계정%20이메일:%20%0D%0A■%20반려견%20이름%20(확인용,%20선택):%20%0D%0A■%20요청%20사유%20(선택):%20" class="email-cta">
+        ✉️ progreneur@gmail.com 으로 메일 보내기
+      </a>
+
+      <p style="margin-top: 14px; font-weight: 700; color: var(--text); font-size: 13.5px;">
+        메일에 포함해주실 내용:
+      </p>
+      <div class="copy-block">제목: 멍트래커 계정 삭제 요청
+
+본문:
+• 카카오 계정 이메일: (가입 시 사용한 이메일)
+• 반려견 이름 (확인용, 선택):
+• 요청 사유 (선택): </div>
+
+      <p style="margin-top: 14px; font-size: 13px; color: var(--text-secondary);">
+        ⏱️ 처리 시간: <strong style="color: var(--text);">영업일 기준 3일 이내</strong> 답변 + 삭제 완료
+      </p>
+    </div>
+
+    <!-- 삭제되는 데이터 / 보관되는 데이터 -->
+    <section>
+      <h3>📋 삭제되는 데이터 / 법령상 보관되는 데이터</h3>
+      <p>회원 탈퇴 시 아래와 같이 처리됩니다.</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 38%;">데이터 유형</th>
+            <th style="width: 22%;">처리</th>
+            <th>보관 기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>카카오 계정 정보 (닉네임·이메일·프로필 사진)</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>반려견 프로필 (이름·견종·생년·체중·건강 메모)</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>산책 기록 (시간·걸음·배변·메모)</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>위치 정보 (행정구역명)</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>FCM 디바이스 토큰</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>업적·동네 발자국 (익명 통계)</td>
+            <td><span class="deleted">즉시 삭제</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>결제 / 구독 기록</td>
+            <td><span class="retained">법령 보관</span></td>
+            <td>5년 (전자상거래법)</td>
+          </tr>
+          <tr>
+            <td>계약 또는 청약철회 등에 관한 기록</td>
+            <td><span class="retained">법령 보관</span></td>
+            <td>5년 (전자상거래법)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <div class="title">⚠️ 영구 삭제는 되돌릴 수 없습니다</div>
+        <p>
+          탈퇴 후에는 동일한 카카오 계정으로 재가입하더라도 이전 산책 기록·반려견 프로필·업적은 복구되지 않습니다.
+          중요한 산책 기록은 탈퇴 전에 마이페이지의 <strong>JSON 내보내기</strong> 기능으로 백업해주세요.
+        </p>
+      </div>
+    </section>
+
+    <!-- 부분 삭제 안내 -->
+    <section>
+      <h3>📌 계정을 유지하고 일부 데이터만 삭제하기</h3>
+      <p>계정을 유지한 채 특정 데이터만 삭제하실 수 있습니다.</p>
+      <ul style="color: var(--text-secondary); padding-left: 22px;">
+        <li><strong>특정 산책 기록 삭제</strong> → 다이어리 탭 → 해당 기록 길게 누르기 → 삭제</li>
+        <li><strong>반려견 프로필 삭제</strong> → 마이 → 반려견 관리 → 반려견 목록 → 삭제</li>
+        <li><strong>알림 비활성화</strong> → 마이 → 알림 → 토글 OFF</li>
+      </ul>
+    </section>
+
+    <!-- 문의 -->
+    <section>
+      <h3>💌 문의</h3>
+      <p>
+        삭제 요청 처리 또는 데이터 보호 관련 문의는 아래로 연락 주세요.
+      </p>
+      <ul style="color: var(--text); padding-left: 22px;">
+        <li>이메일: <a href="mailto:progreneur@gmail.com" style="color: var(--primary); font-weight: 700;">progreneur@gmail.com</a></li>
+        <li>처리 시간: 영업일 기준 3일 이내 답변</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="./index.html">홈</a>
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="./terms.html">이용약관</a>
+      <a href="mailto:progreneur@gmail.com">문의</a>
+    </div>
+    <div style="margin-top: 10px;">
+      © 2026 MungTracker. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
