@@ -194,7 +194,7 @@
       </p>
       <p class="meta" style="margin-top: 8px;">
         <strong>시행일:</strong> 2026년 4월 25일 &nbsp;·&nbsp;
-        <strong>최종 개정일:</strong> 2026년 4월 25일
+        <strong>최종 개정일:</strong> 2026년 6월 1일 (동네 발자국 v1.0 코스 공유 모델 반영)
       </p>
     </div>
 
@@ -206,10 +206,22 @@
       <ul>
         <li><strong>카카오 계정 정보</strong> (닉네임, 이메일, 프로필 사진): 로그인 및 회원 식별</li>
         <li><strong>반려견 프로필 정보</strong> (이름, 견종, 생년, 체중, 건강 메모 등): 맞춤형 산책 지수 산출</li>
-        <li><strong>위치 정보</strong> (GPS 좌표, 행정구역명): 현재 지역 날씨 및 동네 발자국 표시 (정확한 좌표는 산책 중에만 일시 사용, 영구 저장하지 않음)</li>
+        <li><strong>위치 정보</strong> (GPS 좌표, 행정구역명): 현재 지역 날씨 및 산책 거리 측정. 정확한 좌표는 산책 중에만 사용하며 서버에는 1km 격자(KMA grid)로 추상화된 좌표만 저장 — 정확 좌표는 영구 저장하지 않습니다.</li>
         <li><strong>FCM 디바이스 토큰</strong>: 푸시 알림 발송</li>
         <li><strong>산책 기록</strong> (시간, 걸음 수, 배변 상태, 메모): 건강 다이어리 기능 제공</li>
       </ul>
+
+      <div class="sub-heading">■ 선택 수집 — 동네 발자국 공유 (사용자가 "동네에 공유" 토글 ON 시에만)</div>
+      <ul>
+        <li><strong>산책 메타 정보</strong> (산책 소요 시간, 날씨 이모지, 기온): 동네 발자국 피드 카드에 노출</li>
+        <li><strong>산책 세션 ID</strong> (UUID): 본인 산책 기록과 발자국 연결 (다른 사용자에게 노출되지 않음)</li>
+        <li><strong>공유 모드</strong>: private(본인만) 또는 neighborhood(동네 공개) — 기본값 private. 사용자가 명시적으로 토글 ON 했을 때만 neighborhood 로 저장 및 피드 노출</li>
+        <li><strong>자동 메시지</strong>: "○○가 다녀갔어요" 형식 (반려견 이름 + 동네명)</li>
+      </ul>
+      <p style="font-size: 13px; color: #666; margin-top: 8px;">
+        ※ 동네 공유는 언제든 OFF 가능하며 (산책 영수증 화면), 게시된 발자국은 동네 발자국 화면에서 개별 삭제할 수 있습니다.
+        하루 게시 한도 (동네 공개 10건 / 비공개 30건) 가 적용됩니다.
+      </p>
 
       <div class="sub-heading">■ 결제 관련 (Pro 구독 시)</div>
       <ul>

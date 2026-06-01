@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>멍트래커 — 강아지 산책 날씨 가이드</title>
+  <meta name="description" content="우리 강아지 체질·날씨에 딱 맞는 산책 지수. 미세먼지·기온 알림으로 안전 산책! 수의학 권고 기반 산책 가이드 앱.">
+  <meta property="og:title" content="멍트래커: 강아지 산책 날씨">
+  <meta property="og:description" content="우리 강아지에게 딱 맞는 맞춤 산책 지수. 미세먼지·기온·체질 분석.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --primary: #FF8A1E;
+      --primary-dark: #E56F00;
+      --text: #1A1A1A;
+      --text-secondary: #475569;
+      --border: #E5E7EB;
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo',
+                   'Malgun Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    .hero {
+      background: linear-gradient(135deg, #FFF5E6 0%, #FFEBD1 100%);
+      padding: 60px 20px 50px;
+      text-align: center;
+    }
+    .hero .logo {
+      font-size: 56px;
+      margin-bottom: 8px;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 0 0 8px;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    .hero h1 .brand-color { color: var(--primary); }
+    .hero .tagline {
+      font-size: 17px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin: 0 0 24px;
+    }
+    .hero .badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .hero .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 50px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .feature-card .icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .feature-card h3 {
+      font-size: 14.5px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .feature-card p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .legal-links {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+    .legal-links h2 {
+      font-size: 18px;
+      margin: 0 0 16px;
+      color: var(--text);
+      font-weight: 800;
+    }
+    .legal-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .legal-links li {
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-links li:last-child { border-bottom: none; }
+    .legal-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .legal-links a .arrow {
+      color: var(--text-secondary);
+      transition: transform 0.15s ease;
+    }
+    .legal-links a:hover { color: var(--primary); }
+    .legal-links a:hover .arrow { transform: translateX(3px); color: var(--primary); }
+    .legal-links a .desc {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .contact-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      font-weight: 800;
+    }
+    .contact-section p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 0 0 14px;
+    }
+    .contact-section a {
+      display: inline-block;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .contact-section a:hover { background: var(--primary-dark); }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94A3B8;
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 40px 16px 36px; }
+      .hero h1 { font-size: 28px; }
+      .hero .tagline { font-size: 14px; }
+      main { padding: 30px 16px 50px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="logo">🐾</div>
+    <h1>멍트래커<span class="brand-color">.</span></h1>
+    <p class="tagline">우리 강아지에게 딱 맞는 산책 가이드</p>
+    <div class="badges">
+      <span class="badge">🩺 수의학 검증</span>
+      <span class="badge">🌫️ 미세먼지 알림</span>
+      <span class="badge">🐕 견종별 맞춤</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <div class="feature-card">
+        <div class="icon">🌤️</div>
+        <h3>실시간 산책 지수</h3>
+        <p>기상청 + 에어코리아 데이터로 우리 강아지 체질에 맞춘 100점 만점 평가</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🚨</div>
+        <h3>응급 가이드</h3>
+        <p>열사병·동상 즉시 대응법 + 24시 동물병원 검색</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📅</div>
+        <h3>산책 다이어리</h3>
+        <p>시간·걸음·배변까지 자동 기록되는 건강 일지</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏠</div>
+        <h3>실내 놀이 가이드</h3>
+        <p>산책 못 나가는 날의 노즈워크·트릭 트레이닝 6가지</p>
+      </div>
+    </section>
+
+    <section class="legal-links">
+      <h2>📋 약관 및 정책</h2>
+      <ul>
+        <li>
+          <a href="./privacy.html">
+            <span>
+              개인정보처리방침
+              <span class="desc">수집 항목·이용 목적·위탁사·이용자 권리</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="./terms.html">
+            <span>
+              이용약관
+              <span class="desc">서비스 이용 조건·유료 구독·면책 사항</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="./account-deletion.html">
+            <span>
+              계정 및 데이터 삭제
+              <span class="desc">앱 내 직접 삭제 또는 이메일로 요청 가능</span>
+            </span>
+            <span class="arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact-section">
+      <h2>💌 문의하기</h2>
+      <p>오류 신고·의견·제휴 문의 환영합니다.</p>
+      <a href="mailto:progreneur@gmail.com">progreneur@gmail.com</a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 MungTracker. All rights reserved.
+  </footer>
+</body>
+</html>
