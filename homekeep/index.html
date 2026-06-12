@@ -5,12 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>집안 챙김 — 약관·정책</title>
 <style>
-  body{font-family:-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;max-width:720px;margin:0 auto;padding:40px 20px;color:#1e2a24}
-  a{display:block;margin:12px 0;color:#246048;font-size:17px}
+  /* 집안 챙김 앱 테마와 일관 — 그린 액센트 #2E8B57, 화이트, 카드형 링크. */
+  :root{--accent:#2E8B57;--deep:#1F6E43;--ink:#1A1C1E;--sub:#667085;--soft:#E7F4EC;--line:#EAEEF0}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;max-width:720px;margin:0 auto;padding:32px 18px 64px;color:var(--ink);line-height:1.6;word-break:keep-all;background:#fff}
+  h1{font-size:23px;font-weight:800;letter-spacing:-0.2px;margin:0 0 6px}
+  h1::before{content:"";display:block;width:34px;height:4px;border-radius:999px;background:var(--accent);margin-bottom:14px}
+  .muted{color:var(--sub);font-size:14px;margin:0 0 18px}
+  a{display:flex;align-items:center;justify-content:space-between;margin:10px 0;padding:16px 18px;background:var(--soft);border:1px solid var(--line);border-radius:14px;color:var(--deep);font-size:16px;font-weight:700;text-decoration:none}
+  a::after{content:"›";color:var(--accent);font-weight:700;font-size:20px}
 </style>
 </head>
 <body>
 <h1>집안 챙김</h1>
+<p class="muted">약관·정책 문서</p>
 <a href="./privacy.html">개인정보처리방침</a>
 <a href="./terms.html">이용약관</a>
 </body>
